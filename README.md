@@ -44,4 +44,4 @@ mchange-commons-0.2.jar
 mysql-connector-java-5.1.28-bin.jar  
 下载地址：
 # 5、关于c3p0的使用，需要将c3p0-config.xml文件放到src目录下，文件名不可更改。然后配置一下内容：
-![image](https://github.com/qghc/BaseDao/raw/master/screenshots/c3p0.jpg)
+![image](https://github.com/qghc/BaseDao/blob/master/screenshot/c3p0.jpg)
