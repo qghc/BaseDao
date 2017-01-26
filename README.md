@@ -1,0 +1,2 @@
+# BaseDao
+dbutils的好用之处不必多说，但是在使用的过程中发现要对每个Bean写一个BeanDao，来实现Bean的访问，虽然一个Bean只需要写一次，但是对于复杂的Bean来说，其属性众多，写起来也是非常费时间的。所有我想写一个基于dbutils的万能BaseDao来一劳永逸。
