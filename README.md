@@ -1,5 +1,5 @@
 # BaseDao
-dbutils的好用之处不必多说，但是在使用的过程中发现要对每个Bean写一个BeanDao，来实现Bean的访问，虽然一个Bean只需要写一次，但是对于复杂的Bean来说，其属性众多，写起来也是非常费时间的。所有我想写一个基于dbutils的万能BaseDao来一劳永逸。
+dbutils的好用之处不必多说，但是在使用的过程中发现要对每个Bean写一个BeanDao，来实现Bean的访问，虽然一个Bean只需要写一次，但是对于复杂的Bean来说，其属性众多，写起来也是非常费时间的。所有我想写一个基于dbutils的万能BaseDao来一劳永逸。博客详情：http://blog.csdn.net/qigenhuochai/article/details/54732301
 # 1、BaseDao之前的BeanDao的添加实现：
 public boolean addTestBean(TestBean testBean){  
     QueryRunner qr = new TxQueryRunner();  
@@ -45,3 +45,4 @@ mysql-connector-java-5.1.28-bin.jar
 下载地址：
 # 5、关于c3p0的使用，需要将c3p0-config.xml文件放到src目录下，文件名不可更改。然后配置一下内容：
 ![image](https://github.com/qghc/BaseDao/blob/master/screenshot/c3p0.jpg)
+# 6、为了BaseDao的独立使用，BaseDao包含了MBUtils的部分函数
