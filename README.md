@@ -23,10 +23,8 @@ bd.addObject(bean);
 可见BaseDao还是非常好用的，只需实例化的时传入3个参数，然后就随意的增删改查了。第1个参数是表名，如果传入null，则会使用Bean的名称作表名（TestBean ==> test_bean），第2个参数为Bean的class，第3个参数为主键，可以为多键联合主键。
 3、这里除了BaseDao的源码外还有一个工具类：MBUtils包含了BaseDao中用到的反射工具，都是刚开始写的，所以功能不是很多，但是还有个很好用的功能是可以根据Bean生成创建表的sql语句，方便Bean属性过多时使用非常方便，但是非常简易，以后再优化。
 使用非常简单，一行代码：
-[java] view plain copy
 MBUtils.generateCreateTable(null, TestBean.class,new String[]{"id"})  
-其中第1个参数是表名，如果传入null，则会使用Bean的名称作表名（TestBean ==> test_bean）。
-效果如下：
+其中第1个参数是表名，如果传入null，则会使用Bean的名称作表名（TestBean ==> test_bean）。效果如下：
 CREATE TABLE 'test_bean'(  
     'name' varchar(255),  
     'click' varchar(255),  
@@ -38,7 +36,6 @@ CREATE TABLE 'test_bean'(
      PRIMARY KEY ('id')  
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;  
 # 4、依赖的jar包
-[java] view plain copy
 c3p0-0.9.2-pre1.jar  
 commons-dbutils-1.4.jar  
 commons-logging-1.1.1.jar  
@@ -47,19 +44,4 @@ mchange-commons-0.2.jar
 mysql-connector-java-5.1.28-bin.jar  
 下载地址：
 # 5、关于c3p0的使用，需要将c3p0-config.xml文件放到src目录下，文件名不可更改。然后配置一下内容：
-<?xml version="1.0" encoding="UTF-8"?>  
-<c3p0-config>  
-    <!-- 这是默认配置信息 -->  
-    <default-config>   
-        <!-- 连接四大参数配置 -->  
-        <property name="jdbcUrl">jdbc:mysql://localhost:3306/dbname</property>  
-        <property name="driverClass">com.mysql.jdbc.Driver</property>  
-        <property name="user">root</property>  
-        <property name="password">123456</property>  
-        <!-- 池参数配置 -->  
-        <property name="acquireIncrement">3</property>  
-        <property name="initialPoolSize">10</property>  
-        <property name="minPoolSize">2</property>  
-        <property name="maxPoolSize">10</property>  
-    </default-config>  
-</c3p0-config>  
+![image](https://github.com/qghc/BaseDao/raw/master/screenshots/c3p0.jpg)
