@@ -1,4 +1,6 @@
-package com.match.sqlmodel;
+package com.match.sqlmodel.test;
+
+import com.match.sqlmodel.BaseDao;
 
 public class TestBean {
 	private String title;
@@ -8,6 +10,11 @@ public class TestBean {
 	private String id;
 	private String name;
 	private String child;
+	/**
+	 * 该Bean的BaseDao对象
+	 * 设置私有并舍弃set方法，避免被反射误认为是域
+	 */
+	private static BaseDao beautyDao;
 	public String getTitle() {
 		return title;
 	}
@@ -49,6 +56,14 @@ public class TestBean {
 	}
 	public void setChild(String child) {
 		this.child = child;
+	}
+
+	public static BaseDao createBaseDao(){
+		if(beautyDao == null){
+			return new BaseDao<TestBean>("test_bean", TestBean.class, new String[]{"id"});
+		}else{
+			return beautyDao;
+		}
 	}
 	@Override
 	public String toString() {
