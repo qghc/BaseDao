@@ -9,7 +9,7 @@ import java.util.List;
 /**
  * MySql & Bean Utils
  * @author 亓根火柴
- * @date 2017-1-26
+ * @date 2017-1-27
  */
 public class MBUtils {
 	/**
@@ -25,10 +25,10 @@ public class MBUtils {
 		if((table == null)||table.equals("")){
 			table = getSqlName(cls.getSimpleName());
 		}
-		sql.append("CREATE TABLE '"+table+"'(\n");
+		sql.append("CREATE TABLE "+table+"(\n");
 		String[] fields = getAllFields(cls);
 		for(String field:fields){
-			sql.append("\t'"+getSqlName(field)+"' ");
+			sql.append("\t"+getSqlName(field)+" ");
 			String type = getFieldType(field,cls);
 			if(pks.contains(field)){
 				sql.append(type+" NOT NULL,\n");
@@ -36,9 +36,9 @@ public class MBUtils {
 				sql.append(type+",\n");
 			}
 		}
-		sql.append("\t PRIMARY KEY (");
+		sql.append("\tPRIMARY KEY (");
 		for(String pk:pks){
-			sql.append("'"+pk+"',");
+			sql.append(pk+",");
 		}
 		sql.deleteCharAt(sql.length()-1);
 		sql.append(")\n) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;");
